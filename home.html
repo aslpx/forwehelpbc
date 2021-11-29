@@ -10,57 +10,49 @@ https://aslpx.github.io/forwehelpbc/README.md -->
 <body>
 	<h1 style="text-align:center ; padding:10px;">Akun的申請簡章</h1>
 	<hr/>
-	<ul>abc
-　<li>這裡是項目一</li>
-　<li>這裡是項目二</li>
-</ul>
-	<h2>個人簡介</h2>
-		<div style="border-width:3px;border-style:dashed;border-color:#FFAC55;padding:5px;">
-		test
-		</div>
-	<hr/>
-	<h3>為什麼想成為前端、後端、或全端工程師？</h3>
-	<hr/>
-	<h3>為了成為軟體工程師，曾經做過什麼努力？</h3>
-	<hr/>
-	<h3>如果參與這個計畫，會怎麼安排學習時間？</h3>
-	<hr/>
-	<h3>如果參與這個計畫，預期會碰到什麼困難？你打算怎麼解決它？</h3>
-	<hr/>
-	<h3>是否有想要加入的軟體公司？為什麼想加入該公司？</h3>
-	<hr/>
-	<h3>想要對我們說的事情？</h3>
-	<hr/>
-	
-	
+	<!-- <ul > 
+　<li style="font-size: x-large;">個人簡介</li>
+</ul> -->
+	<h2 style="margin-bottom:5px">個人簡介</h2>
+	<div style="border-width:1px;border-style:dashed;border-color:#a5a5a5;padding:5px;">
+		<span style="font-weight:bold;">個人及目前概況:</span>
+		<br>
+我叫Akun，男生31歲，有家庭。
+目前在職於金融軟體業，主要使用工具為Cobol。
+僅自學網頁相關技術，沒有開發網頁經驗
+<br />
+<br/>
+<span style="font-weight:bold;">工作經歷:</span>
+<br/>
+大學為理工科系，使用C語言將研究理論實現。
+<br/>
+曾任職過軟體測試工程師，工作內容:　編寫測試流程進行產品穩定度驗證。
+<br/>
+也有維護系統經驗，工作內容:　加強系統不足的地方，例如使用者觸發某條件，系統背後需要執行資料檢核、儲存或郵件警示等等。
+
+		</div>	
+	<!-- <hr/> -->
+
 	<div id="list"></div>
 	<script>
 		// 先顯示載入中的訊息
 		let list=document.getElementById("list");
 		list.innerHTML="... Loading ...";
-		/*
-			基本的 AJAX 語法：使用最新的 fetch 內建函式
-				fetch(網址).then(function(response){
-					// 取得 response 物件
-				});
-			詳細使用請參考：
-				https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-			或搜尋關鍵字：
-				fetch mdn
-		*/
-		// 透過網址取得伺服器端提供的 JSON 格式資料
-		fetch("https://cwpeng.github.io/live-records-samples/data/products.json").then(function(response){
+
+		fetch("https://aslpx.github.io/forwehelpbc/source.json").then(function(response){
 			return response.json();
 		}).then(function(data){
 			// 先清空畫面
 			list.innerHTML="";
 			// 根據取得的資料，將產品的訊息顯示出來
-			let product;
+			let source;
 			for(let i=0;i<data.length;i++){
-				product=data[i];
-				list.innerHTML+=product.name.bold()+" - "+product.price+"<br/>"+product.description+"<hr/>";
+				source=data[i];
+				list.innerHTML+="<h3 style='margin-bottom:5px'>"+source.title+"</h3>"+"<div style='border-width:1px;border-style:dashed;border-color:#a5a5a5;padding:5px;'>"+source.content+"</div>";
 			}
+			list.innerHTML +="<br/>"+"<hr/>"
 		});
 	</script>
 </body>
 </html>
+
